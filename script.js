@@ -71,4 +71,4 @@ function hideNumber() {
     return findNumber();
 }
 
-console.log(hideNumber()); 
+hideNumber(); 
