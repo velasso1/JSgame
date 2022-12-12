@@ -20,7 +20,7 @@ function hideNumber() {
                 findNumber();
                 break;
 
-            case answer > y:
+            case answer > x:
                 alert('Загаданное число меньше');
                 findNumber();
                 break;
