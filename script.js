@@ -1,17 +1,23 @@
 'use strict';
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 function hideNumber() {
-    let x = 50;
+    let x = getRandomInt(0, 100);
     let numberOfAttemp = 10;
 
     function findNumber() {
-        let answer = +prompt('Угадай число от 1 до 100');
+        let answer = prompt('Угадай число от 1 до 100');
         let restart;
 
         if (isNaN(answer)) {
             alert('Вы ввели не число');
             findNumber();
         }
+
+        console.log(answer, typeof answer);
 
         switch (true) {
             case answer == null:
@@ -23,6 +29,7 @@ function hideNumber() {
 
                 if (restart == true) {
                     numberOfAttemp = 10;
+                    x = getRandomInt(0, 100);
                     findNumber();
                 } else {
                     alert('Спасибо за игру!');
@@ -48,7 +55,15 @@ function hideNumber() {
                 break;
 
             case answer == x:
-                alert('Поздравляю, ты выиграл!');
+                restart = confirm('Поздравляю, ты выиграл! Хочешь сыграть еще раз?');
+
+                if (restart == true) {
+                    numberOfAttemp = 10;
+                    x = getRandomInt(0, 100);
+                    findNumber();
+                } else {
+                    alert('Спасибо за игру!');
+                }
                 break;
         }
 
